@@ -1,0 +1,58 @@
+<% if parent.id != nil %>
+
+<div class="form-group">
+    <label for="scout" class="col-sm-2 control-label">Scouts Member ?</label>
+<div class="col-sm-1">
+    <input type="checkbox" id="member_of_scouts_sa" class="checkbox" name="parent[member_of_scouts_sa]" <%= " checked " if parent.member_of_scouts_sa? %> <%= " disabled " if !user.can_modify_admin_parent %>>
+    <script>
+        $("#member_of_scouts_sa").click(function() {
+            $("#member_of_scouts_sa_details").toggle();
+        });
+    </script>
+</div>
+</div>
+
+
+
+<div id="member_of_scouts_sa_details">
+<div class="form-group">
+    <label for="scout" class="col-sm-2 control-label">Roles</label>
+<div class="col-sm-1">
+	<%= text_field 'role', :adultrole_tokens, "data-pre" => parent.adultroles.all.map(&:attributes).to_json %>
+</div>
+</div>
+
+<div class="form-group">
+    <label for="scout" class="col-sm-2 control-label">Committee</label>
+<div class="col-sm-1">
+	<%= text_field 'committee', :committee_tokens, "data-pre" => parent.committees.all.map(&:attributes).to_json %>
+</div>
+</div>
+
+<script>
+$(function() {
+  $("#role_adultrole_tokens").tokenInput("/adultroles/token_search.json", {
+    crossDomain: false,
+    prePopulate: $("#role_adultrole_tokens").data("pre"),
+    theme: "facebook"
+  });
+});
+</script>
+
+<script>
+$(function() {
+  $("#committee_committee_tokens").tokenInput("/committees/token_search.json", {
+    crossDomain: false,
+    prePopulate: $("#committee_committee_tokens").data("pre"),
+    theme: "facebook"
+  });
+});
+</script>
+<% end %>
+</div>
+
+<% if !parent.member_of_scouts_sa then %>
+  <script>
+    $("#member_of_scouts_sa_details").toggle();
+  </script>
+<% end %>

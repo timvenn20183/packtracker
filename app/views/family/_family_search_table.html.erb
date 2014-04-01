@@ -1,0 +1,31 @@
+<div class="col-md-12">
+<div class="table-responsive">
+		<table class="table table-hover">
+			<thead>
+				<th>Family Code</th>
+				<th>Fullname</th>
+				<th>Actions</th>
+			</thead>
+      <tbody>
+        <% if !results.blank? %>
+          <% results.each do |result| %>
+              <tr>
+                <td>
+                  <%= result.family_code %>
+                </td>
+                <td>
+                  <%= result.fullname %>
+                </td>
+                <td>
+<!-- RECRUIT -->
+                  <%= link_to content_tag(:span,'', :class => 'glyphicon glyphicon-cog', :style => 'color : #333;'),{:action => 'edit', :controller => 'recruits', :id => encrypt(result.id)}, :remote => true if result.is_a?(Recruit) %>
+<!-- PARENT -->
+                   <%= link_to content_tag(:span,'', :class => 'glyphicon glyphicon-cog', :style => 'color : #333;'),{:action => 'edit', :controller => 'parents', :id => encrypt(result.id)}, :remote => true if result.is_a?(Parent) %>
+                   </td>
+              </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+		</table>
+</div>
+</div>

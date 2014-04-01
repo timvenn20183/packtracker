@@ -1,0 +1,6 @@
+A user can be associated with a parent even if they do not have any children
+A user can not be associated with any parents if required
+A parent has many children
+A parent is assocaited with other parents via the children but this can be locked down
+A parent does not automatically mean a user
+

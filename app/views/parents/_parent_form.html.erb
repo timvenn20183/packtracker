@@ -1,0 +1,105 @@
+<!-- SURNAME -->
+                    <div class="form-group">
+                        <label for="surname" class="col-sm-2 control-label">Surname</label>
+                    <div class="col-sm-6">
+                        <input type="surname" class="form-control" name="parent[surname]" placeholder="Surname" value="<%= parent.surname %>">
+                    </div>
+                    </div>
+<!-- FIRSTNAMES -->
+                    <div class="form-group">
+                        <label for="firstnames" class="col-sm-2 control-label">First name(s)</label>
+                    <div class="col-sm-6">
+                        <input type="firstnames" class="form-control" name="parent[firstnames]" placeholder="First name(s)" value="<%= parent.firstnames %>">
+                    </div>
+                    </div>
+<!-- FAMILY CODE -->
+                    <div class="form-group">
+                        <label for="surname" class="col-sm-2 control-label">Family code</label>
+                    <div class="col-sm-6">
+                        <label class="control-label">
+                                <%= parent.family_code if !parent.family_code.blank? %>
+                                <%= 'Will be auto generated' if parent.family_code.blank? %>
+                        </label>
+                    </div>
+                    </div>
+<!-- ADMIN LOCKED -->
+                    <%= render 'admin_fields', :parent => parent ,:user => user %>
+<!-- ID NUMBER -->
+                    <div class="form-group">
+                        <label for="idnumber" class="col-sm-2 control-label">ID number</label>
+                    <div class="col-sm-6">
+                        <input type="idnumber" class="form-control" name="parent[idnumber]" placeholder="ID number" value="<%= parent.idnumber %>">
+                    </div>
+                    </div>
+<!-- ADDRESS -->
+                    <div class="form-group">
+                        <label for="address" class="col-sm-2 control-label">Address</label>
+                    <div class="col-sm-6">
+                        <textarea class="form-control" rows="3" name="parent[address]" placeholder="Address"><%= parent.address %></textarea>
+                    </div>
+                    </div>
+
+<!-- WORK TEL -->
+                    <div class="form-group">
+                        <label for="worktel" class="col-sm-2 control-label">Telephone (work)</label>
+                    <div class="col-sm-6">
+                        <input type="worktel" class="form-control" name="parent[tel_work]" placeholder="Telephone (work)" value="<%= parent.tel_work %>">
+                    </div>
+                    </div>
+<!-- HOME TEL -->
+                    <div class="form-group">
+                        <label for="hometel" class="col-sm-2 control-label">Telephone (home)</label>
+                    <div class="col-sm-6">
+                        <input type="hometel" class="form-control" name="parent[tel_home]" placeholder="Telephone (home)" value="<%= parent.tel_home %>">
+                    </div>
+                    </div>
+<!-- CELL -->
+                    <div class="form-group">
+                        <label for="cell" class="col-sm-2 control-label">Telephone (cell)</label>
+                    <div class="col-sm-6">
+                        <input type="cell" class="form-control" name="parent[cell]" placeholder="Telephone (cell)" value="<%= parent.cell %>">
+                    </div>
+                    </div>
+<!-- EMAIL -->
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control" name="parent[email]" placeholder="Email" value="<%= parent.email %>">
+                    </div>
+                    </div>
+<!-- GENDER -->
+                    <div class="form-group">
+                        <label for="gender" class="col-sm-2 control-label">Gender</label>
+                    <div class="col-sm-6">
+                        <input type="gender" class="form-control" name="parent[gender]" placeholder="Gender" value="<%= parent.gender %>">
+                    </div>
+                    </div>
+<!-- MARITAL STATUS -->
+                    <div class="form-group">
+                        <label for="martialstatus" class="col-sm-2 control-label">Marital status</label>
+                    <div class="col-sm-6">
+                        <input type="maritalstatus" class="form-control" name="parent[marital_status]" placeholder="Marital status" value="<%= parent.marital_status %>">
+                    </div>
+                    </div>
+<!-- OCCUPATION -->
+                    <div class="form-group">
+                        <label for="occupation" class="col-sm-2 control-label">Occupation</label>
+                    <div class="col-sm-6">
+                        <input type="occupation" class="form-control" name="parent[occupation]" placeholder="Occupation" value="<%= parent.occupation %>">
+                    </div>
+                    </div>
+
+<!-- EMPLOYER -->
+                    <div class="form-group">
+                        <label for="employer" class="col-sm-2 control-label">Employer</label>
+                    <div class="col-sm-6">
+                        <input type="employer" class="form-control" name="parent[employer]" placeholder="Employer" value="<%= parent.employer %>">
+                    </div>
+                    </div>
+<!-- HOBBY -->
+                    <div class="form-group">
+                        <label for="hobby" class="col-sm-2 control-label">Hobbies / Interests</label>
+                    <div class="col-sm-6">
+                        <textarea class="form-control" rows="3" name="parent[hobby]" placeholder="Hobbies / Interests"><%= parent.hobby %></textarea>
+                    </div>
+                    </div>

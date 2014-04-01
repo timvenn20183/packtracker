@@ -1,0 +1,1 @@
+$('#content').html("<%= j render :partial => 'attendance/index', :locals => {:user => @user, :recruits => @recruits, :applydate => @applydate, :attendancetypes => @attendancetypes, :attendancetype => @attendancetype} %>");

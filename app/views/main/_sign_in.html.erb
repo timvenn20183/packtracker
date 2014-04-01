@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <br/><br/><br/>
+    <div class="well">
+        <h1 style="text-align:center"><%= Scouts::Application.config.site_title %></h1>
+        <%= form_tag({:controller => :main, :action => :process_sign_in}, :id => 'sign_in_form', :role => 'form' ) do |f| %>
+            <div class="form-group">
+            <input type="email" class="form-control" id="email" placeholder="Email address">
+            </div>
+            <div class="form-group">
+            <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+        <p style="text-align:center"><button class="btn btn-warning" href="#" role="button">Sign in</button></p>
+        <% end %>
+    </div>
+    <p>
+        Please note that this site and the information contained within is private and may only be accessed by authorised users who would have access to the information contained within as part of their normal scout related activities.
+    </p>
+    </div>
+    <div class="col-md-4"></div>
+    </div>
+</div>

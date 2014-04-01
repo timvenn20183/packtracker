@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="panel panel-warning">
+    	<div class="panel-body">
+			<div class="row">
+				<div class="col-md-8">
+					<p>Please use the search bar to search the family records.</p>
+			        <%= form_tag({:controller => :family, :action => :search}, :remote => true,:authenticity_token => form_authenticity_token, :role => 'search', :class => 'form-horizontal') do |f| %>
+		            <div class="form-group">
+		                <div class="col-sm-6">
+		                	<input type="search" class="form-control" name="search" placeholder="Search ..." value="<%= user.options[:last_search] %>">
+			            </div>
+			             <button type="submit" class="btn btn-info">Go</button>
+		            </div>
+		            <% end %>
+				</div>
+			</div>
+		</div>
+			<div class="row" id="search_results">
+				<%= render 'family/family_search_table', :results => results %>
+			</div>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <div class="panel panel-warning">
+        <div class="panel-body">
+            <div class="container-fluid">
+            <div class="row">
+                <p>Please select the approiate date and update the list of recruits as required. Once the checkbox is selected the database will automatically be updated.</p>
+            </div>
+                    <div class="form-group">
+                        <label for="surname" class="col-sm-2 control-label">Date</label>
+                    <div class='input-group col-sm-2'>
+                        <input type='text' name="applydate" class="form-control" data-behaviour='datepicker' id="datepicker" value="<%= applydate %>"/>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+                    </div>
+<!-- RECRUIT LIST -->
+                    <div id="rollcall_list">
+                        <%= render 'rollcall/update_create_list', :recruits => recruits, :applydate => applydate %>
+                    </div>
+            </div>
+            </div>
+    </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('[data-behaviour~=datepicker]').datepicker({format: 'yyyy-mm-dd', autoclose: true, todayHighlight: true});
+    <% geturl = url_for :controller => 'rollcall', :action => 'update_create_list' %>
+    /* update rollcall list on date change */
+    $('#datepicker').change(function(){
+        $.ajax({url : '<%= geturl %>?applydate=' + $('#datepicker').val()});
+    });
+  })
+</script>

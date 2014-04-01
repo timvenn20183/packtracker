@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div id="notify">
+    <div class="panel panel-default">
+        <div class="panel-heading">Please use the for below to add a new recruit. This recruit will be associated with <%= parent.fullname %>
+        </div>
+    </div>
+    </div>
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <span>Adding new record</span>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="col-md-11">
+                <%= form_tag({:controller => :recruits, :action => :create}, :remote => true,:authenticity_token => form_authenticity_token, :role => 'form', :class => 'form-horizontal', :id => 'recruit_form') do |f| %>
+                    <%= hidden_field_tag 'parent_id', encrypt(parent.id) %>
+                    <%= render 'recruits/recruit_form', :recruit => recruit, :user => user, :patrols => patrols, :burrows => burrows, :sixers => sixers %>
+                </div>
+                <div class="col-md-1">
+                    <button type="submit" onclick="$('#recruit_form').submit();" class="btn btn-info btn-sm">Create</button>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

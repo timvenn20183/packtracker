@@ -1,0 +1,79 @@
+<div class="form-group">
+    <label for="scout" class="col-sm-2 control-label">Meerkat ?</label>
+<div class="col-sm-1">
+    <span class="input-group-addon">
+        <input type="checkbox" id="meerkat_checkbox" name="recruit[meerkat]" <%= " checked " if recruit.meerkat? %> <%= " disabled " if !user.can_modify_admin_recruit %>>
+        <script>
+            $("#meerkat_checkbox").click(function() {
+                $("#burrow_list").toggle(this.checked);
+            });
+        </script>
+    </span>
+</div>
+<div class="col-sm-3" id="burrow_list">
+    <%= select("recruit", "burrow_id", burrows.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, :class => "form-control", :disabled => !user.can_modify_admin_recruit) %>
+</div>
+</div>
+
+<% if !recruit.meerkat? %>
+<script>$('#burrow_list').hide();</script>
+<% end %>
+
+<div class="form-group">
+    <label for="cub" class="col-sm-2 control-label">Cub ?</label>
+<div class="col-sm-1">
+    <span class="input-group-addon">
+        <input type="checkbox" id="cub_checkbox" name="recruit[cub]" <%= "checked" if recruit.cub? %> <%= " disabled " if !user.can_modify_admin_recruit %>>
+        <script>
+            $("#cub_checkbox").click(function() {
+                $(".sixer_list").toggle(this.checked);
+            });
+        </script>
+    </span>
+</div>
+<div class="col-sm-3 sixer_list">
+    <%= select("recruit", "sixer_id", sixers.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, :class => "form-control", :disabled => !user.can_modify_admin_recruit) %>
+</div>
+<div class="col-sm-2 sixer_list">
+    <label class="control-label">Sixer ?</label>
+    <input type="checkbox" name="recruit[is_sixer]" <%= "checked" if recruit.is_sixer? %> <%= " disabled " if !user.can_modify_admin_recruit %>>
+</div>
+<div class="col-sm-2 sixer_list">
+    <label class="control-label">Second ?</label>
+    <input type="checkbox" name="recruit[is_second]" <%= "checked" if recruit.is_second? %> <%= " disabled " if !user.can_modify_admin_recruit %>>
+</div>
+<% if !recruit.cub? %>
+<script>$('.sixer_list').hide();</script>
+<% end %>
+
+</div>
+
+<div class="form-group">
+    <label for="scout" class="col-sm-2 control-label">Scout ?</label>
+<div class="col-sm-1">
+    <span class="input-group-addon">
+        <input type="checkbox" id="scout_checkbox" name="recruit[scout]" <%= " checked " if recruit.scout? %> <%= " disabled " if !user.can_modify_admin_recruit %>>
+        <script>
+            $("#scout_checkbox").click(function() {
+                $(".patrol_list").toggle(this.checked);
+            });
+        </script>
+
+    </span>
+</div>
+<div class="col-sm-3 patrol_list">
+    <%= select("recruit", "patrol_id", patrols.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, :class => "form-control", :disabled => !user.can_modify_admin_recruit) %>
+</div>
+<div class="col-sm-2 patrol_list">
+    <label class="control-label">PL ?</label>
+    <input type="checkbox" name="recruit[is_patrol_leader]" <%= "checked" if recruit.is_patrol_leader? %> <%= " disabled " if !user.can_modify_admin_recruit %>>
+</div>
+<div class="col-sm-2 patrol_list">
+    <label class="control-label">APL ?</label>
+    <input type="checkbox" name="recruit[is_assistant_patrol_leader]" <%= "checked" if recruit.is_assistant_patrol_leader? %> <%= " disabled " if !user.can_modify_admin_recruit %>>
+</div>
+
+</div>
+<% if !recruit.scout? %>
+<script>$('.patrol_list').hide();</script>
+<% end %>

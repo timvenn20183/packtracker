@@ -1,0 +1,20 @@
+<% geturl = url_for :controller => 'attendance', :action => 'update_recruits_event_status' %>
+
+<% recruits.each do |recruit| %>
+    <hr/>
+    <div class="form-group">
+        <label for="recruit" class="col-sm-2 control-label" style="text-align:right"><%= recruit.fullname %></label>
+        <div class="col-sm-1 pull-right">
+            <span class="input-group-addon">
+            <input type="checkbox" class="recruit_checkbox" name="<%= encrypt(recruit.id) %>" <%= " checked " if recruit.did_attend_event(attendancetype, applydate) %>>
+            </span>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+<% end %>
+<script>
+    $('.recruit_checkbox').click(function(){
+        $.ajax({url : '<%= geturl %>?applydate=' + $('#datepicker').val() + '&id=' + $(this).attr('name') + '&attendancetype=' + $('#attendancetype').val()});
+        /*alert($(this).attr('name'));*/
+    });
+</script>

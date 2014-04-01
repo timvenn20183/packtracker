@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/"><%= Scouts::Application.config.site_title %></a>
+    </div>
+        <ul class="nav navbar-nav">
+                <li>
+                    <%= link_to('My Family', :action => 'my_family', :controller => 'family' , :remote => true) %>
+                </li>
+        </ul>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <%= render 'main/family_management' if user.can_manage_families %>
+        <%= render 'main/search' if user.can_search %>
+        <%= render 'main/daytoday' if user.can_admin %>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-brand"><%= user.fullname %></li>
+            <li><button class="btn btn-warning" onclick="document.location.href='/sign_out';">Sign out</button></li>
+        </ul>
+    </div>
+    </div>
+</nav>

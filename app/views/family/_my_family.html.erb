@@ -1,0 +1,14 @@
+<div class="container-fluid">
+    <div class="panel panel-warning">
+        <div class="panel-body">
+            <div class="container-fluid">
+                    <p>Below is a list of adults and children assoicated with <%= parent.fullname %>. Please click on an individual in order to update their details.</p>
+                    <% parents.each do |parent| %>
+                            <%= link_to(parent.fullname, {:action => 'edit', :controller => 'parents', :id => encrypt(parent.id)}, :remote => true, :class => 'btn btn-warning') %>
+                    <% end %>
+                    <% recruits.each do |recruit| %>
+                            <%= link_to(recruit.fullname, {:action => 'edit', :controller => 'recruits', :id => encrypt(recruit.id)}, :remote => true, :class => 'btn btn-warning') %>
+                    <% end %>
+            </div>
+    </div>
+</div>

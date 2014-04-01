@@ -1,0 +1,1 @@
+$('#search_results').html("<%= j render :partial => 'family/family_search_table', :locals => {:results => @results} %>");

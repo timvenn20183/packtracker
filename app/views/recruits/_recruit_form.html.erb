@@ -1,0 +1,136 @@
+<!-- FIRSTNAMES -->
+                    <div class="form-group">
+                        <label for="firstnames" class="col-sm-2 control-label">Firstname(s)</label>
+                    <div class="col-sm-6">
+                        <input type="firstnames" class="form-control" name="recruit[recruit_firstnames]" placeholder="Firstname(s)" value="<%= recruit.recruit_firstnames %>">
+                    </div>
+                    </div>
+<!-- SURNAME -->
+                    <div class="form-group">
+                        <label for="surname" class="col-sm-2 control-label">Surname</label>
+                    <div class="col-sm-6">
+                        <input type="surname" class="form-control" name="recruit[recruit_surname]" placeholder="Surname" value="<%= recruit.recruit_surname %>">
+                    </div>
+                    </div>
+<!-- FAMILY CODE -->
+                    <div class="form-group">
+                        <label for="surname" class="col-sm-2 control-label">Family code</label>
+                    <div class="col-sm-6">
+                        <label class="control-label"><%= recruit.family_code if !recruit.parents.blank? %></label>
+                    </div>
+                    </div>
+<!-- ADMIN LOCKED -->
+                    <%= render 'admin_fields', :recruit => recruit ,:user => user, :patrols => patrols, :burrows => burrows, :sixers => sixers %>
+<!-- ID NUMBER -->
+                    <div class="form-group">
+                        <label for="idnumber" class="col-sm-2 control-label">ID number</label>
+                    <div class="col-sm-3">
+                        <input type="idnumber" class="form-control" name="recruit[recruit_idnumber]" placeholder="ID number" value="<%= recruit.recruit_idnumber %>">
+                    </div>
+                    </div>
+<!-- DOB -->
+                    <div class="form-group">
+                        <label for="dob" class="col-sm-2 control-label">Date of birth</label>
+                    <div class="col-sm-6">
+                        <input type="dob" class="form-control" name="recruit[recruit_dob]" placeholder="Date of birth" value="<%= recruit.recruit_dob.to_date.to_s if !recruit.recruit_dob.blank? %>">
+                    </div>
+                    </div>
+<!-- ADDRESS -->
+                    <div class="form-group">
+                        <label for="address" class="col-sm-2 control-label">Address</label>
+                    <div class="col-sm-6">
+                        <textarea class="form-control" rows="3" name="recruit[recruit_address]" placeholder="Address"><%= recruit.recruit_address %></textarea>
+                    </div>
+                    </div>
+<!-- TEL HOME -->
+                    <div class="form-group">
+                        <label for="tel" class="col-sm-2 control-label">Home telephone</label>
+                    <div class="col-sm-3">
+                        <input type="tel" class="form-control" name="recruit[recruit_tel_home]" placeholder="Home telephone" value="<%= recruit.recruit_tel_home %>">
+                    </div>
+                    </div>
+<!-- TEL CELL -->
+                    <div class="form-group">
+                        <label for="cell" class="col-sm-2 control-label">Cell number</label>
+                    <div class="col-sm-3">
+                        <input type="tel" class="form-control" name="recruit[recruit_tel_cell]" placeholder="Cell number" value="<%= recruit.recruit_tel_cell %>">
+                    </div>
+                    </div>
+<!-- EMAIL -->
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-3">
+                        <input type="email" class="form-control" name="recruit[recruit_email]" placeholder="Email" value="<%= recruit.recruit_email %>">
+                    </div>
+                    </div>
+<!-- GENDER -->
+                    <div class="form-group">
+                        <label for="gender" class="col-sm-2 control-label">Gender</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" name="recruit[recruit_gender]" placeholder="Gender" value="<%= recruit.recruit_gender %>">
+                    </div>
+                    </div>
+<!-- RELIGION -->
+                    <div class="form-group">
+                        <label for="religion" class="col-sm-2 control-label">Religion</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="recruit[recruit_religion]" placeholder="Religion" value="<%= recruit.recruit_religion %>">
+                    </div>
+                    </div>
+<!-- SPECIAL -->
+                    <div class="form-group">
+                        <label for="special" class="col-sm-2 control-label">Special conditions</label>
+                    <div class="col-sm-6">
+                        <textarea class="form-control" rows="3" name="recruit[recruit_special_conditions]" placeholder="Special conditions"><%= recruit.recruit_special_conditions %></textarea>
+                    </div>
+                    </div>
+<!-- DOCTOR -->
+                    <div class="form-group">
+                        <label for="doctor" class="col-sm-2 control-label">Doctor</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="recruit[doctor_name]" placeholder="Doctor" value="<%= recruit.doctor_name %>">
+                    </div>
+                    </div>
+<!-- DOCTOR TEL -->
+                    <div class="form-group">
+                        <label for="doctor_tel" class="col-sm-2 control-label">Doctor telephone</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="recruit[doctor_tel]" placeholder="Doctor telephone" value="<%= recruit.doctor_tel %>">
+                    </div>
+                    </div>
+<!-- MEDICAL SCHEME -->
+                    <div class="form-group">
+                        <label for="medical_scheme" class="col-sm-2 control-label">Medical scheme</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="recruit[medical_scheme]" placeholder="Medical scheme" value="<%= recruit.medical_scheme %>">
+                    </div>
+                    </div>
+<!-- MEDICAL NUMBER -->
+                    <div class="form-group">
+                        <label for="medical_number" class="col-sm-2 control-label">Medical number</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="recruit[medical_number]" placeholder="Medical number" value="<%= recruit.medical_number %>">
+                    </div>
+                    </div>
+
+<!-- MEDICAL PRINCIPLE -->
+                    <div class="form-group">
+                        <label for="medical_principle" class="col-sm-2 control-label">Medical principle</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="recruit[medical_principle]" placeholder="Medical principle" value="<%= recruit.medical_principle %>">
+                    </div>
+                    </div>
+<!-- SCHOOL -->
+                    <div class="form-group">
+                        <label for="school" class="col-sm-2 control-label">School</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="recruit[school]" placeholder="School" value="<%= recruit.school %>">
+                    </div>
+                    </div>
+<!-- HOBBY -->
+                    <div class="form-group">
+                        <label for="hobby" class="col-sm-2 control-label">Hobbies / Interests</label>
+                    <div class="col-sm-6">
+                        <textarea class="form-control" rows="3" name="recruit[hobby]" placeholder="Hobbies / Interests"><%= recruit.hobby %></textarea>
+                    </div>
+                    </div>

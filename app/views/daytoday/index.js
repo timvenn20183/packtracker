@@ -1,0 +1,1 @@
+$('#content').html("<%= j render :partial => 'daytoday/index', :locals => {:user => @user} %>");

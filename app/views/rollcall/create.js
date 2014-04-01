@@ -1,0 +1,1 @@
+$('#content').html("<%= j render :partial => 'rollcall/create', :locals => {:recruits => @recruits} %>");
